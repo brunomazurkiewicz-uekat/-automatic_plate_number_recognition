@@ -581,7 +581,7 @@ def yolo_detect_single(img_path: str, model: YOLO):
     return plate, image
 
 
-def preprocess_plate_maciek_style(plate_image):
+def preprocess_plate_paddle(plate_image):
     """
     Preprocessing:
     gray + bilateral blur + binaryzacja.
@@ -621,7 +621,7 @@ def evaluate_paddle(best_model: YOLO, dataset_root: Path, max_images=100):
         if plate_image is None:
             continue
 
-        plate_gray, plate_thresh = preprocess_plate_maciek_style(plate_image)
+        plate_gray, plate_thresh = preprocess_plate_paddle(plate_image)
 
         pred = ""
 
